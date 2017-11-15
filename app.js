@@ -70,26 +70,17 @@ function handleSignoutClick(event) {
   gapi.auth2.getAuthInstance().signOut();
 }
 
-/**
- * Append a pre element to the body containing the given message
- * as its text node. Used to display the results of the API call.
- *
- * @param {string} message Text to be placed in pre element.
- */
-function appendPre(message) {
-  var pre = document.getElementById('content');
-  var textContent = document.createTextNode(message + '\n');
-  pre.appendChild(textContent);
-}
-
 //API Calls
 //=========================
 
 //Setup Variables
 //=========================
 
+//Creates a javascript date for todays date. May be incremented/decremented
 var currentDate = new Date();
 console.log(currentDate);
+// Convertes current date to formatt that can be used in API calls
+var currentDateGoogle = currentDate.toISOString();
 
 /**
  * Print the summary and start datetime/date of the next ten events in
@@ -99,12 +90,13 @@ console.log(currentDate);
 function listUpcomingEvents() {
   gapi.client.calendar.events.list({
     'calendarId': 'primary',
-    'timeMin': (currentDate).toISOString(),
+    'timeMin': currentDateGoogle,
     'showDeleted': false,
     'singleEvents': true,
     'maxResults': 10,
     'orderBy': 'startTime'
   }).then(function(response) {
+    console.log(response);
     var events = response.result.items;
     appendPre('Upcoming events:');
 
