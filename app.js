@@ -85,11 +85,11 @@ console.log(currentDateGoogle);
 console.log(currentDate);
 
 // Convertes current date to midnight
-var timMin = currentDate.setHours(0);
+var timeMin = currentDate.setHours(0).toISOString();
 console.log(timMin);
 
 //Converts current dat to 11 pm
-var timMax = currentDate.setHours(23);
+var timeMax = currentDate.setHours(23).toISOString();
 console.log(timMax);
 
 /**
@@ -101,8 +101,8 @@ function listUpcomingEvents() {
   gapi.client.calendar.events.list({
     'calendarId': 'primary',
     //'timeMin': (new Date()).toISOString(),
-    'timeMin': (timMin).toISOString(),
-    'timMax' : (timMax).toISOString(),
+    'timeMin': timeMin,
+    'timeMax' : timeMax,
     'showDeleted': false,
     'singleEvents': true,
     'orderBy': 'startTime'
