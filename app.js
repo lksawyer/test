@@ -214,8 +214,8 @@ function listUpcomingEvents() {
 var ApiKeyOWM = "079b3bb7acbb509e98d70fdbdb2f77fd";
 
 //api.openweathermap.org/data/2.5/weather?q={city name},{country code}
-//http://api.openweathermap.org/data/2.5/weather?q=Raleigh,US&APPID=079b3bb7acbb509e98d70fdbdb2f77fd
-var queryURL = "api.openweathermap.org/data/2.5/weather?q=Raleigh,US" + "&APPID=" +  ApiKeyOWM;
+//api.openweathermap.org/data/2.5/weather?q=Raleigh,US&APPID=079b3bb7acbb509e98d70fdbdb2f77fd
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Raleigh,US" + "&APPID=" +  ApiKeyOWM;
 console.log(queryURL);
 
 //Stores OWM call information
@@ -230,5 +230,4 @@ function getWeather() {
   }).done(function(response) {
     console.log(response);
   });
-
 }
