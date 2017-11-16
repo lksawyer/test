@@ -68,7 +68,7 @@ main {
 	text-align: center;
 }
 
-.flex-item:last-child {
+.flex-container:last-child {
 	width: 50%;
 }
 
