@@ -78,8 +78,19 @@ function handleSignoutClick(event) {
 
 //Creates a javascript date for todays date. May be incremented/decremented
 
-var currentDate = new Date();
-console.log(currentDate);
+var currentDate = new Date().getTime();
+console.log(currentDate); 
+// Hours part from the timestamp
+var hours = currentDate.getHours();
+// Minutes part from the timestamp
+var minutes = "0" + currentDate.getMinutes();
+// Seconds part from the timestamp
+var seconds = "0" + currentDate.getSeconds();
+
+// Will display time in 10:30:23 format
+var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+console.log(formattedTime);
+
 
 // Convertes current date to formatt that can be used in API calls
 var currentDateGoogle = currentDate.toISOString();
@@ -102,8 +113,8 @@ function listUpcomingEvents() {
   gapi.client.calendar.events.list({
     'calendarId': 'primary',
     //'timeMin': (new Date()).toISOString(),
-    'timeMin': "2017-11-16T00:00:00.000Z",
-    'timeMax' : "2017-11-16T23:59:59.999Z",
+    'timeMin': "2017-11-15T00:00:00.000Z",
+    'timeMax' : "2017-11-15T23:59:59.999Z",
     'showDeleted': false,
     'singleEvents': true,
     'orderBy': 'startTime'
