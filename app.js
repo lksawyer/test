@@ -79,11 +79,14 @@ var d = new Date ();
 //Allows us to increment/decrement day
 var dateOffset = 0;
 
+//Array to store days of the week text value. Index 0 is Sunday. This is the javascript date convention
+var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 //Writes d to #calendar-date formatted as: Day  ,  Date
 function calendarDate() {
   console.log("inside calendarDate()");
   $("#calendar-date").empty();
-  $("#calendar-date").text((d.getUTCDay() + dateOffset) + "&nbsp&nbsp,&nbsp&nbsp" +(d.getUTCDate() + dateOffset));
+  $("#calendar-date").append( (weekDays[d.getUTCDay() + dateOffset]) + "&nbsp&nbsp,&nbsp&nbsp" +(d.getUTCDate() + dateOffset) );
 }
 
 //UTC date
