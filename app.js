@@ -228,7 +228,6 @@ function getWeather() {
     method: "GET"
   }).done(function(response) {
     console.log(response);
-    console.log(response.main.temp);
   });
-  
+
 }
