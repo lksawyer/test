@@ -105,13 +105,13 @@ var d = new Date ();
 //.setHours(0,0,0,0)
 //var timeMin = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours());
 //console.log("Time Min" + timeMin);
-var googleTimeMin = d.getUTCFullYear() + '-' + d.getUTCMonth() + "-" + d.getUTCDate() + 'T00:00:00.000Z'
+var googleTimeMin = d.getUTCFullYear() + '-' + d.getUTCMonth()+1 + "-" + d.getUTCDate() + 'T00:00:00.000Z'
 
 //Converts current date to 11:59:59:999 pm
 //.setHours(23,59,59,999)
 //var timeMax = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 23, 59, 59, 999);
 //console.log("Time Max" + timeMax);
-var googleTimeMax = d.getUTCFullYear() + '-' + d.getUTCMonth() + "-" + d.getUTCDate() + 'T23:59:59.999Z'
+var googleTimeMax = d.getUTCFullYear() + '-' + d.getUTCMonth()+1+ "-" + d.getUTCDate() + 'T23:59:59.999Z'
 
 console.log("Min: " + googleTimeMin + ", Max: " + googleTimeMax);
 //2017-11-16T04:00:00.000Z
