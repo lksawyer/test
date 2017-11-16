@@ -238,7 +238,7 @@ function getWeather() {
     $("#weather-icon").append(imgDiv);
     $("#temp").empty();
     //Converts from Kelvin to F
-    $("#temp").append(((9/5) * (response.main.temp - 273)) + 32 + "  F");
+    $("#temp").append((((9/5) * (response.main.temp - 273)) + 32).toPrecision(2) + "  F");
    
   });
 }
