@@ -112,7 +112,8 @@ console.log("Min: " + googleTimeMin + ", Max: " + googleTimeMax);
 //Adds one to dateOffset, then calls calendarDate() & listUpcomingEvents()
 function incrementDate() {
   dateOffset ++;
-  googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T00:00:00.000Z'
+  googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T00:00:00.000Z';
+  googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T23:59:59.999Z';
   calendarDate();
   listUpcomingEvents();
 
@@ -121,7 +122,8 @@ function incrementDate() {
 //Substracts one to dateOffset, then calls calendarDate() & listUpcomingEvents()
 function decrementDate() {
   dateOffset --;
-  googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T23:59:59.999Z'
+  googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T00:00:00.000Z';
+  googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T23:59:59.999Z';
   calendarDate();
   listUpcomingEvents();
 
