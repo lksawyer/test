@@ -113,23 +113,24 @@ function listUpcomingEvents() {
     var events = response.result.items;
     console.log(events);
 
-    if (events.length > 0) {
-      for (i = 0; i < events.length; i++) {
-        var event = events[i];
-        var when = event.start.dateTime;
-        if (!when) {
-          when = event.start.date;
-        }
-        console.log(event.summary + ' (' + when + ')')
-      }
-    } else {
-      console.log('No upcoming events found.');
-    }
+    //Example Code
+    // if (events.length > 0) {
+    //   for (i = 0; i < events.length; i++) {
+    //     var event = events[i];
+    //     var when = event.start.dateTime;
+    //     if (!when) {
+    //       when = event.start.date;
+    //     }
+    //     console.log(event.summary + ' (' + when + ')')
+    //   }
+    // } else {
+    //   console.log('No upcoming events found.');
+    // }
 
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
-        var when = event.start.dateTime;
+        var when = event.start.dateTime.getHours();
         if (!when) {
           when = event.start.date;
         }
@@ -138,7 +139,9 @@ function listUpcomingEvents() {
           '<div class="event"> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + when + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
 
           );
-
+        //Clears out event-container on sign in
+        $("#event-container").empty();
+        //Appends start time and summary to generated divs
         $("#event-container").append(writeEvent);      
       }
     } else {
