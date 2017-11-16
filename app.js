@@ -83,7 +83,7 @@ var dateOffset = 0;
 var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 //Array to store month text value. Index 0 is Sunday. This is the javascript date convention
-var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 //Writes d to #calendar-date formatted as: Day  ,  Date
 function calendarDate() {

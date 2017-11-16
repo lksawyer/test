@@ -64,12 +64,8 @@ main {
 	width: 30%;
 	height: 75px;
 	line-height: 75px;
-	font-size: 1.75em;
+	font-size: 1em;
 	text-align: center;
-}
-
-.flex-container:last-child {
-	width: 50%;
 }
 
 i, #sign-out {
