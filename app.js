@@ -48,6 +48,7 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     signoutButton.style.display = 'block';
+    getWeather();
     calendarDate();
     listUpcomingEvents();
   } else {
@@ -211,7 +212,7 @@ var ApiKeyOWM = "079b3bb7acbb509e98d70fdbdb2f77fd";
 var queryURL = "api.openweathermap.org/data/2.5/weather?q=London,uk" + "&APPID=" +  ApiKeyOWM;
 
 //Stores OWM call information
-var weatherObject = ;
+// var weatherObject = ;
 
 function getWeather() {
   $.ajax({
