@@ -133,16 +133,13 @@ function listUpcomingEvents() {
         if (!when) {
           when = event.start.date;
         }
-        $("#event-container").append('<div class="event">');
-        $("#event-container").append('<div class="event-header">');
-        $("#event-container").append('<i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div>');
-        $("#event-container").append('<div>' + when + "&nbsp&nbsp|&nbsp&nbsp" + event.summary + "</div></div>");
-                
+        var writeEvent = $(
 
+          '<div class="event"> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + when + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
 
+          );
 
-
-        
+        $("#event-container").append(writeEvent);      
       }
     } else {
       console.log('No upcoming events found.');
