@@ -92,22 +92,6 @@ function calendarDate() {
   $("#calendar-date").append( (weekDays[d.getUTCDay() + dateOffset]) + " , " + (months[d.getUTCMonth()]) + " " + (d.getUTCDate() + dateOffset) );
 }
 
-//Adds one to dateOffset, then calls calendarDate() & listUpcomingEvents()
-function incrementDate() {
-  dateOffset ++;
-  calendarDate();
-  listUpcomingEvents();
-
-}
-
-//Substracts one to dateOffset, then calls calendarDate() & listUpcomingEvents()
-function decrementDate() {
-  dateOffset --;
-  calendarDate();
-  listUpcomingEvents();
-
-}
-
 //UTC date
 // var currentDateUTC = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
 // console.log("UTC" + currentDateUTC);
@@ -124,6 +108,24 @@ var googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.
 var googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T23:59:59.999Z'
 
 console.log("Min: " + googleTimeMin + ", Max: " + googleTimeMax);
+
+//Adds one to dateOffset, then calls calendarDate() & listUpcomingEvents()
+function incrementDate() {
+  dateOffset ++;
+  googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T00:00:00.000Z'
+  calendarDate();
+  listUpcomingEvents();
+
+}
+
+//Substracts one to dateOffset, then calls calendarDate() & listUpcomingEvents()
+function decrementDate() {
+  dateOffset --;
+  googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T23:59:59.999Z'
+  calendarDate();
+  listUpcomingEvents();
+
+}
 
 //API Calls
 //=========================
