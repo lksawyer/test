@@ -1,3 +1,10 @@
+ //Calls getWeather() when document is ready
+ $( document ).ready(getWeather());
+
+
+//Google 0Auth
+//=========================
+
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '908655633390-bipca08v5p9tkot7cjul1pgtcbd4ts10.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyCcz_rY6GhH9tTnejrKQgbxXu7y8CM2Fjg';
@@ -48,7 +55,6 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     signoutButton.style.display = 'block';
-    getWeather();
     calendarDate();
     listUpcomingEvents();
   } else {
@@ -215,6 +221,8 @@ var queryURL = "api.openweathermap.org/data/2.5/weather?q=London,uk" + "&APPID="
 // var weatherObject = ;
 
 function getWeather() {
+  console.log("inside getWeather");
+
   $.ajax({
     url: queryURL,
     method: "GET"
