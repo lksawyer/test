@@ -73,11 +73,6 @@ function handleSignoutClick(event) {
 //API Calls
 //=========================
 
-//Setup Variables
-//=========================
-
-var calendarEvents = [];
-
 //Creates a javascript date for todays date. May be incremented/decremented
 var d = new Date ();
 
@@ -121,7 +116,6 @@ function listUpcomingEvents() {
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
-        calendarEvents = event.push();
         var when = event.start.dateTime;
         if (!when) {
           when = event.start.date;
@@ -132,31 +126,28 @@ function listUpcomingEvents() {
       console.log('No upcoming events found.');
     }
 
+    if (events.length > 0) {
+      for (i = 0; i < events.length; i++) {
+        var event = events[i];
+        var when = event.start.dateTime;
+        if (!when) {
+          when = event.start.date;
+        }
+        $("#event-container").append('<div class="event">');
+        $("#event-container").append('<div class="event-header">');
+        $("#event-container").append('<i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div>');
+        $("#event-container").append('<div>' + when + "&nbsp&nbsp|&nbsp&nbsp" + event.summary + "</div></div>");
+                
+
+
+
+
+        
+      }
+    } else {
+      console.log('No upcoming events found.');
+    }
+
   });
 }
-
-console.log("Events:" + calendarEvents);
-
-// //Setup Variables
-// //=========================
-
-// var queryBaseURL = "https://www.googleapis.com/calendar/v3/calendars/primary/events";
-
-// //Functions
-// //=========================
-
-
-// function ajaxCall (button) {
-  
-//   $.ajax({url:queryBaseURL, method: "GET"})
-//     .done( function (giphyData) {
-//       console.log("Inside API Call");
-//       console.log(giphyData);
-//       // for(i=0; i<giphyData.data.length; i++) {
-
-
-//       // };
-//     });
-
-// };
 
