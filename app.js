@@ -214,8 +214,8 @@ function listUpcomingEvents() {
 var ApiKeyOWM = "079b3bb7acbb509e98d70fdbdb2f77fd";
 
 //api.openweathermap.org/data/2.5/weather?q={city name},{country code}
-//http://api.openweathermap.org/data/2.5/weather?q=raleigh,nc&APPID=079b3bb7acbb509e98d70fdbdb2f77fd
-var queryURL = "api.openweathermap.org/data/2.5/weather?q=London,uk" + "&APPID=" +  ApiKeyOWM;
+//http://api.openweathermap.org/data/2.5/weather?q=Raleigh,US&APPID=079b3bb7acbb509e98d70fdbdb2f77fd
+var queryURL = "api.openweathermap.org/data/2.5/weather?q=Raleigh,US" + "&APPID=" +  ApiKeyOWM;
 
 //Stores OWM call information
 // var weatherObject = ;
