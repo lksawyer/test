@@ -77,41 +77,21 @@ function handleSignoutClick(event) {
 //=========================
 
 //Creates a javascript date for todays date. May be incremented/decremented
-//var d = new Date(2017, 10, 15, 23, 0, 0, 0);
-
 var d = new Date ();
 
 //UTC date
 // var currentDateUTC = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
 // console.log("UTC" + currentDateUTC);
 
-// //Returns the time difference between UTC time and local time, in hours
-// var offset = currentDate.getTimezoneOffset()/60;
-// console.log(offset);
-
-// // Gets hour from the currentDate timestamp
-// var hours = currentDate.getHours();
-// console.log(hours);
-
-// //Add offset to hours
-// hours += offset;
-// console.log(hours);
-
-// // Convertes current date to formatt that can be used in API calls
-// var currentDateGoogle = currentDate.toISOString();
-// console.log(currentDateGoogle);
-
-// Convertes current date to midnight
-//.setHours(0,0,0,0)
+// Converts current date to midnight
 //var timeMin = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours());
 //console.log("Time Min" + timeMin);
-var googleTimeMin = d.getUTCFullYear() + '-' + d.getUTCMonth()+1 + "-" + d.getUTCDate() + 'T00:00:00.000Z'
+var googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth()+1) + "-" + d.getUTCDate() + 'T00:00:00.000Z'
 
 //Converts current date to 11:59:59:999 pm
-//.setHours(23,59,59,999)
 //var timeMax = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 23, 59, 59, 999);
 //console.log("Time Max" + timeMax);
-var googleTimeMax = d.getUTCFullYear() + '-' + d.getUTCMonth()+1+ "-" + d.getUTCDate() + 'T23:59:59.999Z'
+var googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth()+1) + "-" + d.getUTCDate() + 'T23:59:59.999Z'
 
 console.log("Min: " + googleTimeMin + ", Max: " + googleTimeMax);
 //2017-11-16T04:00:00.000Z
