@@ -82,11 +82,14 @@ var dateOffset = 0;
 //Array to store days of the week text value. Index 0 is Sunday. This is the javascript date convention
 var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
+//Array to store month text value. Index 0 is Sunday. This is the javascript date convention
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 //Writes d to #calendar-date formatted as: Day  ,  Date
 function calendarDate() {
   console.log("inside calendarDate()");
   $("#calendar-date").empty();
-  $("#calendar-date").append( (weekDays[d.getUTCDay() + dateOffset]) + "&nbsp&nbsp,&nbsp&nbsp" +(d.getUTCDate() + dateOffset) );
+  $("#calendar-date").append( (weekDays[d.getUTCDay() + dateOffset]) + " , " + (months[d.getUTCMonth()]) + (d.getUTCDate() + dateOffset) );
 }
 
 //UTC date

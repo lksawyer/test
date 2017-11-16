@@ -68,6 +68,10 @@ main {
 	text-align: center;
 }
 
+.flex-item:last-child {
+	width: 50%;
+}
+
 i, #sign-out {
 	cursor: pointer;
 }
