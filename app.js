@@ -76,6 +76,9 @@ function handleSignoutClick(event) {
 //Creates a javascript date for todays date. May be incremented/decremented
 var d = new Date ();
 
+//Allows us to increment/decrement day
+var dateOffset = 1;
+
 //UTC date
 // var currentDateUTC = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
 // console.log("UTC" + currentDateUTC);
@@ -83,15 +86,15 @@ var d = new Date ();
 // Converts current date to midnight
 //var timeMin = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours());
 //console.log("Time Min" + timeMin);
-var googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth()+1) + "-" + d.getUTCDate() + 'T00:00:00.000Z'
+var googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T00:00:00.000Z'
 
 //Converts current date to 11:59:59:999 pm
 //var timeMax = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 23, 59, 59, 999);
 //console.log("Time Max" + timeMax);
-var googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth()+1) + "-" + d.getUTCDate() + 'T23:59:59.999Z'
+//2017-11-16T04:00:00.000Z toISOSString format
+var googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T23:59:59.999Z'
 
 console.log("Min: " + googleTimeMin + ", Max: " + googleTimeMax);
-//2017-11-16T04:00:00.000Z
 
 /**
  * Print the summary and start datetime/date of the next ten events in
@@ -137,17 +140,21 @@ function listUpcomingEvents() {
         if (!when) {
           when = event.start.date;
         }
+
+        //Stores event[i].when, event.[i].summmary, event[i].id in var writeEvent
         var writeEvent = $(
 
-          '<div class="event" data-eventID='+ event.id + '> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + when + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
+          '<div class="event" data-eventid='+ event.id + '> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + when + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
 
           );
 
-        //Appends start time and summary to generated divs
+        //Appends content of writeEvent and summary to generated divs
         $("#event-container").append(writeEvent);      
       }
     } else {
-      console.log('No upcoming events found.');
+
+       //Appends 'No upcoming events found.' to #event-container if there are no upcoming events
+      $("#event-container").append('No upcoming events found.');
     }
 
   });
