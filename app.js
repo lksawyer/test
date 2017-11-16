@@ -231,5 +231,9 @@ function getWeather() {
     console.log(response);
     console.log(response.weather[0].icon);
     console.log(response.main.temp);
+
+    $("#weather-icon").append("<img src='" + "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'" + ">");
+
+    
   });
 }
