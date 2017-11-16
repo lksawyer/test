@@ -48,8 +48,8 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     signoutButton.style.display = 'block';
+    calendarDate ();
     listUpcomingEvents();
-    // ajaxCall();
   } else {
     authorizeButton.style.display = 'block';
     signoutButton.style.display = 'none';
@@ -70,14 +70,20 @@ function handleSignoutClick(event) {
   gapi.auth2.getAuthInstance().signOut();
 }
 
-//API Calls
+//Time Manipulation
 //=========================
 
 //Creates a javascript date for todays date. May be incremented/decremented
 var d = new Date ();
 
 //Allows us to increment/decrement day
-var dateOffset = 1;
+var dateOffset = 0;
+
+//Writes d to #calendar-date formatted as: Day  ,  Date
+function calendarDate () {
+  $("#calendar-date").empty();
+  $("#calendar-date").text((d.getUTCDay() + dateOffset) + "&nbsp&nbsp,&nbsp&nbsp" +(d.getUTCDate() + dateOffset));
+}
 
 //UTC date
 // var currentDateUTC = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
@@ -95,6 +101,9 @@ var googleTimeMin = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.
 var googleTimeMax = d.getUTCFullYear() + '-' + (d.getUTCMonth() +1 ) + "-" + (d.getUTCDate() + dateOffset) + 'T23:59:59.999Z'
 
 console.log("Min: " + googleTimeMin + ", Max: " + googleTimeMax);
+
+//API Calls
+//=========================
 
 /**
  * Print the summary and start datetime/date of the next ten events in
