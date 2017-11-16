@@ -76,7 +76,7 @@ function handleSignoutClick(event) {
 //Setup Variables
 //=========================
 
-var events = [];
+var calendarEvents = [];
 
 //Creates a javascript date for todays date. May be incremented/decremented
 var d = new Date ();
@@ -113,29 +113,29 @@ function listUpcomingEvents() {
     'singleEvents': true,
     'orderBy': 'startTime'
   }).then(function(response) {
-    // console.log(response);
-    // console.log(response.results);
-    // var events = response.result.items;
-    // console.log(events);
+    console.log(response);
+    console.log(response.results);
+    var events = response.result.items;
+    console.log(events);
 
-    // if (events.length > 0) {
-    //   for (i = 0; i < events.length; i++) {
-    //     var event = events[i];
-    //     var when = event.start.dateTime;
-    //     if (!when) {
-    //       when = event.start.date;
-    //     }
-    //     console.log(event.summary + ' (' + when + ')')
-    //   }
-    // } else {
-    //   console.log('No upcoming events found.');
-    // }
+    if (events.length > 0) {
+      for (i = 0; i < events.length; i++) {
+        var event = events[i];
+        calendarEvents = event.push();
+        var when = event.start.dateTime;
+        if (!when) {
+          when = event.start.date;
+        }
+        console.log(event.summary + ' (' + when + ')')
+      }
+    } else {
+      console.log('No upcoming events found.');
+    }
 
-    events = response.result.items;
   });
 }
 
-console.log("Events:" + events);
+console.log("Events:" + calendarEvents);
 
 // //Setup Variables
 // //=========================
