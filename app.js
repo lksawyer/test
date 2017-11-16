@@ -1,5 +1,10 @@
  //Calls getWeather() when document is ready
- $( window ).on( "load", getWeather, calendarDate );
+ $( window ).on( "load", function(){
+
+  getWeather(); 
+  calendarDate();
+
+ });
 
 
 //Google 0Auth
