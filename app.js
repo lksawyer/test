@@ -87,7 +87,8 @@ var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 
 
 //Writes d to #calendar-date formatted as: Day  ,  Date
 function calendarDate() {
-  console.log("inside calendarDate()");
+  //Need to be able to handle when dateOffset > than weekDays array 
+  //calendarDateOffset = dateOffset;
   $("#calendar-date").empty();
   $("#calendar-date").append( (weekDays[d.getUTCDay() + dateOffset]) + " , " + (months[d.getUTCMonth()]) + " " + (d.getUTCDate() + dateOffset) );
 }
@@ -130,6 +131,9 @@ function decrementDate() {
 }
 
 //API Calls
+//=========================
+
+//Event List
 //=========================
 
 /**
@@ -196,3 +200,26 @@ function listUpcomingEvents() {
   });
 }
 
+//Weather
+//https://home.openweathermap.org
+//=========================
+
+var ApiKeyOWM = "079b3bb7acbb509e98d70fdbdb2f77fd";
+
+//api.openweathermap.org/data/2.5/weather?q={city name},{country code}
+//http://api.openweathermap.org/data/2.5/weather?q=raleigh,nc&APPID=079b3bb7acbb509e98d70fdbdb2f77fd
+var queryURL = "api.openweathermap.org/data/2.5/weather?q=London,uk" + "&APPID=" +  ApiKeyOWM;
+
+//Stores OWM call information
+var weatherObject = ;
+
+function getWeather() {
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).done(function(response) {
+    console.log(response);
+    console.log(response.weather.icon);
+    console.log(response.main.temp);
+  });
+}
