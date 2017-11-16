@@ -234,7 +234,11 @@ function getWeather() {
 
     var imgDiv = "<img src='" + "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'" + ">";
     console.log(imgDiv);
+    $("#weather-icon").empty();
     $("#weather-icon").append(imgDiv);
+    $("#temp").empty();
+    $("#temp").append(response.main.temp);
+
 
 
     
