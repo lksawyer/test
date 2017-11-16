@@ -96,9 +96,8 @@ function listUpcomingEvents() {
     'maxResults': 10,
     'orderBy': 'startTime'
   }).then(function(response) {
-    console.log(response);
     var events = response.result.items;
-    appendPre('Upcoming events:');
+    console.log(events);
 
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
@@ -107,10 +106,10 @@ function listUpcomingEvents() {
         if (!when) {
           when = event.start.date;
         }
-        appendPre(event.summary + ' (' + when + ')')
+        console.log(event.summary + ' (' + when + ')')
       }
     } else {
-      appendPre('No upcoming events found.');
+      console.log('No upcoming events found.');
     }
   });
 }
