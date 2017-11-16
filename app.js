@@ -129,7 +129,7 @@ function listUpcomingEvents() {
 
     //Clears out event-container on sign in
     $("#event-container").empty();
-    
+
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
@@ -139,7 +139,7 @@ function listUpcomingEvents() {
         }
         var writeEvent = $(
 
-          '<div class="event"> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + when + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
+          '<div class="event" data-eventID='+ event.id + '> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + when + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
 
           );
 
