@@ -77,32 +77,44 @@ function handleSignoutClick(event) {
 //=========================
 
 //Creates a javascript date for todays date. May be incremented/decremented
+//var d = new Date(2017, 10, 15, 23, 0, 0, 0);
 
-var currentDate = new Date().getTime();
-console.log(currentDate); 
-// Hours part from the timestamp
-var hours = currentDate.getHours();
-// Minutes part from the timestamp
-var minutes = "0" + currentDate.getMinutes();
-// Seconds part from the timestamp
-var seconds = "0" + currentDate.getSeconds();
+var d = new Date ();
 
-// Will display time in 10:30:23 format
-var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-console.log(formattedTime);
+//UTC date
+// var currentDateUTC = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+// console.log("UTC" + currentDateUTC);
 
+// //Returns the time difference between UTC time and local time, in hours
+// var offset = currentDate.getTimezoneOffset()/60;
+// console.log(offset);
 
-// Convertes current date to formatt that can be used in API calls
-var currentDateGoogle = currentDate.toISOString();
-console.log(currentDateGoogle);
+// // Gets hour from the currentDate timestamp
+// var hours = currentDate.getHours();
+// console.log(hours);
+
+// //Add offset to hours
+// hours += offset;
+// console.log(hours);
+
+// // Convertes current date to formatt that can be used in API calls
+// var currentDateGoogle = currentDate.toISOString();
+// console.log(currentDateGoogle);
 
 // Convertes current date to midnight
-var timeMin = currentDate.setHours(0,0,0);
-console.log(timeMin);
+//.setHours(0,0,0,0)
+//var timeMin = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours());
+//console.log("Time Min" + timeMin);
+var googleTimeMin = d.getUTCFullYear() + '-' + d.getUTCMonth() + "-" + d.getUTCDate() + 'T00:00.00.000Z'
 
-//Converts current dat to 11:59:59:999 pm
-var timeMax = currentDate.setHours(23,59,59,999);
-console.log(timeMax);
+//Converts current date to 11:59:59:999 pm
+//.setHours(23,59,59,999)
+//var timeMax = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 23, 59, 59, 999);
+//console.log("Time Max" + timeMax);
+var googleTimeMax = d.getUTCFullYear() + '-' + d.getUTCMonth() + "-" + d.getUTCDate() + 'T23:59.59.999Z'
+
+console.log("Min: " + googleTimeMin + ", Max: " + googleTimeMax);
+//2017-11-16T04:00:00.000Z
 
 /**
  * Print the summary and start datetime/date of the next ten events in
@@ -113,12 +125,14 @@ function listUpcomingEvents() {
   gapi.client.calendar.events.list({
     'calendarId': 'primary',
     //'timeMin': (new Date()).toISOString(),
-    'timeMin': "2017-11-15T00:00:00.000Z",
-    'timeMax' : "2017-11-15T23:59:59.999Z",
+    'timeMin': googleTimeMin,
+    'timeMax' : googleTimeMax,
     'showDeleted': false,
     'singleEvents': true,
     'orderBy': 'startTime'
   }).then(function(response) {
+    console.log(response);
+    console.log(response.results);
     var events = response.result.items;
     console.log(events);
 
