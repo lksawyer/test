@@ -89,7 +89,23 @@ var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 
 function calendarDate() {
   console.log("inside calendarDate()");
   $("#calendar-date").empty();
-  $("#calendar-date").append( (weekDays[d.getUTCDay() + dateOffset]) + " , " + (months[d.getUTCMonth()]) + (d.getUTCDate() + dateOffset) );
+  $("#calendar-date").append( (weekDays[d.getUTCDay() + dateOffset]) + " , " + (months[d.getUTCMonth()]) + " " + (d.getUTCDate() + dateOffset) );
+}
+
+//Adds one to dateOffset, then calls calendarDate() & listUpcomingEvents()
+function incrementDate() {
+  dateOffset ++;
+  calendarDate();
+  listUpcomingEvents();
+
+}
+
+//Substracts one to dateOffset, then calls calendarDate() & listUpcomingEvents()
+function decrementDate() {
+  dateOffset --;
+  calendarDate();
+  listUpcomingEvents();
+
 }
 
 //UTC date
