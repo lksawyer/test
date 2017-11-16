@@ -48,7 +48,7 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     signoutButton.style.display = 'block';
-    calendarDate ();
+    calendarDate();
     listUpcomingEvents();
   } else {
     authorizeButton.style.display = 'block';
@@ -80,7 +80,8 @@ var d = new Date ();
 var dateOffset = 0;
 
 //Writes d to #calendar-date formatted as: Day  ,  Date
-function calendarDate () {
+function calendarDate() {
+  console.log("inside calendarDate()");
   $("#calendar-date").empty();
   $("#calendar-date").text((d.getUTCDay() + dateOffset) + "&nbsp&nbsp,&nbsp&nbsp" +(d.getUTCDate() + dateOffset));
 }
