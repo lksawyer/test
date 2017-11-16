@@ -77,20 +77,21 @@ function handleSignoutClick(event) {
 //=========================
 
 //Creates a javascript date for todays date. May be incremented/decremented
+
 var currentDate = new Date();
 console.log(currentDate);
+
 // Convertes current date to formatt that can be used in API calls
 var currentDateGoogle = currentDate.toISOString();
 console.log(currentDateGoogle);
-console.log(currentDate);
 
 // Convertes current date to midnight
-var timeMin = currentDate.setHours(0).toISOString();
-console.log(timMin);
+var timeMin = currentDate.setHours(0,0,0);
+console.log(timeMin);
 
-//Converts current dat to 11 pm
-var timeMax = currentDate.setHours(23).toISOString();
-console.log(timMax);
+//Converts current dat to 11:59:59:999 pm
+var timeMax = currentDate.setHours(23,59,59,999);
+console.log(timeMax);
 
 /**
  * Print the summary and start datetime/date of the next ten events in
@@ -101,8 +102,8 @@ function listUpcomingEvents() {
   gapi.client.calendar.events.list({
     'calendarId': 'primary',
     //'timeMin': (new Date()).toISOString(),
-    'timeMin': timeMin,
-    'timeMax' : timeMax,
+    'timeMin': "2017-11-16T00:00:00.000Z",
+    'timeMax' : "2017-11-16T23:59:59.999Z",
     'showDeleted': false,
     'singleEvents': true,
     'orderBy': 'startTime'
