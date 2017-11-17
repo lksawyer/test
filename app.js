@@ -255,10 +255,9 @@ function startTime() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
-    var s = today.getSeconds();
+    
     m = checkTime(m);
-    s = checkTime(s);
-
+    
     $("#clock").text(h + ":" + m + ":" + s);
     var t = setTimeout(startTime, 500);  //whatever this is, the clock stops without it.
 }
