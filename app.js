@@ -189,6 +189,9 @@ function listUpcomingEvents() {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
         var when = event.start.dateTime;
+        //
+        var d = new Date(when).getHours();
+        console.log(d);
         if (!when) {
           when = event.start.date;
         }
