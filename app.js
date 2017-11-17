@@ -190,7 +190,8 @@ function listUpcomingEvents() {
         var event = events[i];
         var when = event.start.dateTime;
         //
-        var d = new Date(when).getHours().getMinutes();
+        var d = new Date(when).getHours();
+        var m = new Date(when).getMinutes();
         console.log(d);
         if (!when) {
           when = event.start.date;
@@ -199,7 +200,7 @@ function listUpcomingEvents() {
         //Stores event[i].when, event.[i].summmary, event[i].id in var writeEvent
         var writeEvent = $(
 
-          '<div class="event" data-eventid='+ event.id + '> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + d + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
+          '<div class="event" data-eventid='+ event.id + '> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + d + ":" + m + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
 
           );
 
