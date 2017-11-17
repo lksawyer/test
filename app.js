@@ -192,6 +192,11 @@ function listUpcomingEvents() {
         //
         var d = new Date(when).getHours();
         var m = new Date(when).getMinutes();
+
+        if (m < 10) {
+          m = "0" + m;
+        }
+
         console.log(d);
         if (!when) {
           when = event.start.date;
