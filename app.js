@@ -259,7 +259,7 @@ function startTime() {
     m = checkTime(m);
     s = checkTime(s);
 
-    $("#clock").append(h + ":" + m + ":" + s);
+    $("#clock").text(h + ":" + m + ":" + s);
     var t = setTimeout(startTime, 500);  //whatever this is, the clock stops without it.
 }
 function checkTime(i) {
