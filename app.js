@@ -199,7 +199,7 @@ function listUpcomingEvents() {
         //Stores event[i].when, event.[i].summmary, event[i].id in var writeEvent
         var writeEvent = $(
 
-          '<div class="event" data-eventid='+ event.id + '> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + when + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
+          '<div class="event" data-eventid='+ event.id + '> <div class="event-header"> <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit Event"></i></div><div>' + d + '&nbsp&nbsp|&nbsp&nbsp' + event.summary + '</div><div>'
 
           );
 
