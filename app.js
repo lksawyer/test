@@ -3,6 +3,7 @@
 
   getWeather(); 
   calendarDate();
+  startTime();
 
  });
 
@@ -60,7 +61,6 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     signoutButton.style.display = 'block';
-    calendarDate();
     listUpcomingEvents();
   } else {
     authorizeButton.style.display = 'block';
@@ -246,4 +246,23 @@ function getWeather() {
     $("#temp").append((((9/5) * (response.main.temp - 273)) + 32).toPrecision(2) + "  F");
    
   });
+}
+
+//Time
+//=========================
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+
+    $("#clock").append(h + ":" + m + ":" + s);
+    var t = setTimeout(startTime, 500);  //whatever this is, the clock stops without it.
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
 }
