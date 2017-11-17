@@ -190,7 +190,7 @@ function listUpcomingEvents() {
         var event = events[i];
         var when = event.start.dateTime;
         //
-        var d = new Date(when).getHours();
+        var d = new Date(when).getHours().getMinutes();
         console.log(d);
         if (!when) {
           when = event.start.date;
