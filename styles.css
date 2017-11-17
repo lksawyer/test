@@ -117,6 +117,10 @@ i, #sign-out {
     background-color: darkgray;
 }
 
+#event-details-header {
+	text-align: center;
+}
+
 /*Button
 =========================*/
 
