@@ -14,12 +14,6 @@ nav {
 	float: left;
 }
 
-/*.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}*/
-
 .full-height {
 	height: 100%;
 }
@@ -43,7 +37,8 @@ main {
 	overflow: hidden;
 }
 
-/*==============================Header===========*/
+/*Header
+=========================*/
 
 .flex-container {
   padding: 0;
@@ -72,7 +67,8 @@ i, #sign-out {
 	cursor: pointer;
 }
 
-/*============Calendar Content=============*/
+/*Calendar Content
+=========================*/
 
 #calendar-content {
 	padding: 20px;
@@ -119,6 +115,14 @@ i, #sign-out {
     background-color: rgb(255,255,255);
     border-radius: 4px;
     background-color: darkgray;
+}
+
+/*Button
+=========================*/
+
+button {
+	background-color: rgb(255,255,255);
+	border: none;
 }
 
 
